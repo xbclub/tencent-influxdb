@@ -13,6 +13,7 @@ builds:
     goos:
       - linux
       - darwin
+      - windows
     goarch:
       - 386
       - amd64
@@ -26,7 +27,7 @@ archives:
       windows: Windows
       386: i386
       amd64: x86_64
-  files:
+  - files:
     - src: conf*
 checksum:
   name_template: 'checksums.txt'
