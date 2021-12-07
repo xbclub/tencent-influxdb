@@ -12,7 +12,6 @@ builds:
     id: 1.0
     goos:
       - linux
-      - windows
       - darwin
     goarch:
       - 386
