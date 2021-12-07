@@ -1,0 +1,10 @@
+influxdbtoken:
+influxdburl:
+influxdbbucket:
+influxdborg:
+lighthouse:
+  - secretid:
+    secretkey:
+    regions:
+      - region: ap-shanghai
+      - region: ap-beijing
