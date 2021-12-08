@@ -17,7 +17,7 @@ func main() {
 	c := cron.New(cron.WithParser(Parser))
 
 	//添加定时任务 schedule 为cron表达式
-	_, err := c.AddFunc("0 */5 * * * *", module.GetLighthoustInfo)
+	_, err := c.AddFunc("0 */1 * * * *", module.GetLighthoustInfo)
 	if err != nil {
 		logs.Error(err)
 	}

@@ -2,8 +2,8 @@ package module
 
 import (
 	"context"
-	"fmt"
 	influxdb2 "github.com/influxdata/influxdb-client-go"
+	"github.com/siddontang/go/log"
 	"time"
 )
 
@@ -23,7 +23,7 @@ func WritePoint(name string, traffic float64) {
 	p := influxdb2.NewPoint("Bandwidth", map[string]string{"Name": name}, map[string]interface{}{"traffic": traffic}, time.Now())
 	err := writeAPI.WritePoint(context.Background(), p)
 	if err != nil {
-		fmt.Println(err)
+		log.Error(err)
 		return
 	}
 }

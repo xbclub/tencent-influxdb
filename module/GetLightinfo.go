@@ -11,6 +11,7 @@ func GetLighthoustInfo() {
 	var traffic int64
 	var instanceid string
 	for _, i := range Configs.Lighthouse {
+		log.Info("开始获取流量信息")
 		credential := common.NewCredential(i.Secretid, i.Secretkey)
 		for _, sk := range i.Regions {
 			client, err := lighthouse.NewClient(credential, sk.Region, profile.NewClientProfile())

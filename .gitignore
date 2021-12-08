@@ -2,3 +2,4 @@
 dist/
 .goreleaser.yml
 .DS_Store
+conf/config.yml
