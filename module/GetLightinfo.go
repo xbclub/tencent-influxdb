@@ -1,7 +1,7 @@
 package module
 
 import (
-	"github.com/prometheus/common/log"
+	"github.com/beego/beego/v2/core/logs"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
 	lighthouse "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/lighthouse/v20200324"
@@ -10,19 +10,19 @@ import (
 func GetLighthoustInfo() {
 	var traffic int64
 	var instanceid string
+	logs.Info("开始获取流量信息")
 	for _, i := range Configs.Lighthouse {
-		log.Info("开始获取流量信息")
 		credential := common.NewCredential(i.Secretid, i.Secretkey)
 		for _, sk := range i.Regions {
 			client, err := lighthouse.NewClient(credential, sk.Region, profile.NewClientProfile())
 			if err != nil {
-				log.Error("与腾讯云建立连接出错", err)
+				logs.Error("与腾讯云建立连接出错", err)
 				continue
 			}
 			request := lighthouse.NewDescribeInstancesTrafficPackagesRequest()
 			resp, err := client.DescribeInstancesTrafficPackages(request)
 			if err != nil {
-				log.Error("获取实例流量出错", err)
+				logs.Error("获取实例流量出错", err)
 				continue
 			}
 			for _, i := range resp.Response.InstanceTrafficPackageSet {
@@ -36,6 +36,7 @@ func GetLighthoustInfo() {
 			traffic = 0
 		}
 	}
+	logs.Info("获取流量信息完成")
 }
 func formatFileSize(fileSize float64) (size float64) {
 	if fileSize < 1024 {
