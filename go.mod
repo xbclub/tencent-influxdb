@@ -7,6 +7,7 @@ require (
 	github.com/influxdata/influxdb-client-go v1.4.0
 	github.com/prometheus/common v0.10.0
 	github.com/robfig/cron/v3 v3.0.1
+	github.com/siddontang/go v0.0.0-20170517070808-cb568a3e5cc0
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.306
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/lighthouse v1.0.306
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
